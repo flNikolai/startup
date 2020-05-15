@@ -1,0 +1,46 @@
+@charset "UTF-8";
+/* Импортируем Библеотеку */
+/* Импортируем Шрифт */
+@font-face { font-family: "Roboto"; font-style: normal; font-weight: 400; font-display: swap; src: local("Roboto"), url("../fonts/Roboto-Regular.woff2") format("woff2"); }
+
+@font-face { font-family: "Roboto"; font-style: italic; font-weight: 400; font-display: swap; src: local("Roboto"), url("../fonts/Roboto-Italic.woff2") format("woff2"); }
+
+@font-face { font-family: "Roboto"; font-style: normal; font-weight: 700; font-display: swap; src: local("Roboto"), url("../fonts/Roboto-Bold.woff2") format("woff2"); }
+
+@font-face { font-family: "Roboto"; font-style: italic; font-weight: 700; font-display: swap; src: local("Roboto"), url("../fonts/Roboto-BoldItalic.woff2") format("woff2"); }
+
+/* Обнуление стилей */
+::-webkit-input-placeholder { color: #666; }
+
+::-moz-placeholder { color: #666; }
+
+:-ms-input-placeholder { color: #666; }
+
+::-ms-input-placeholder { color: #666; }
+
+::placeholder { color: #666; }
+
+::-moz-selection { background-color: orange; color: #fff; }
+
+::selection { background-color: orange; color: #fff; }
+
+input, textarea { outline: none; }
+
+input:focus:required:invalid, textarea:focus:required:invalid { border-color: red; }
+
+input:required:valid, textarea:required:valid { border-color: green; }
+
+*, *::before, *::after { -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+ul[class], ol[class] { padding: 0; list-style: none; }
+
+body, h1, h2, h3, h4, p, ul[class], ol[class], li, figure, figcaption, blockquote, dl, dd { margin: 0; }
+
+img { max-width: 100%; display: block; }
+
+input, button, textarea, select { font: inherit; }
+
+a:not([class]) { -webkit-text-decoration-skip: ink; text-decoration-skip-ink: auto; }
+
+/* Сайт. Основные стили */
+body { font-family: Roboto, sans-serif; font-size: 16px; min-width: 320px; position: relative; line-height: 1.5; overflow-x: hidden; color: #333; scroll-behavior: smooth; text-rendering: optimizeSpeed; }

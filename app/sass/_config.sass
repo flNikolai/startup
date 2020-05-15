@@ -1,0 +1,103 @@
+// Пользовательские переменные
+$accent: orange // Акцентный цвет
+$fontsize: 16px // Размер шрифта
+$textcolor: #333 // Цвет текста
+$system: -apple-system, BlinkMacSystemFont, Arial, sans-serif // Семейство системных шрифтов
+$roboto: Roboto, sans-serif // Семейство шрифтов Roboto
+
+// Bootstrap совместимая gutter переменная => $gutter
+$grid-gutter-width: 20px
+$gutter: $grid-gutter-width
+
+/* 
+ * Импортируем Библеотеку
+ */
+// @import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
+// @import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
+// @import 'node_modules/bootstrap/scss/utilities/_sizing.scss' // Optional Bootstrap Utilites
+
+/* 
+ * Импортируем Шрифт
+ */
+@mixin font($fname, $fstyle, $fweight, $furl)
+  @font-face
+    font-family: $fname
+    font-style: $fstyle
+    font-weight: $fweight
+    font-display: swap // Раскомментируйте для начального отображения системных шрифтов
+    src: local($fname), url($furl) format('woff2')
+
+@include font('Roboto', normal, 400, '../fonts/Roboto-Regular.woff2')
+@include font('Roboto', italic, 400, '../fonts/Roboto-Italic.woff2')
+@include font('Roboto', normal, 700, '../fonts/Roboto-Bold.woff2')
+@include font('Roboto', italic, 700, '../fonts/Roboto-BoldItalic.woff2')
+
+/*
+ * Обнуление стилей
+ */
+::placeholder
+  color: #666
+
+::selection
+  background-color: $accent
+  color: #fff
+
+input, textarea
+  outline: none
+  &:focus:required:invalid
+    border-color: red
+  &:required:valid
+    border-color: green
+
+*,
+*::before,
+*::after
+  box-sizing: border-box
+
+ul[class],
+ol[class]
+  padding: 0
+  list-style: none
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd
+  margin: 0
+
+img
+  max-width: 100%
+  display: block
+
+input,
+button,
+textarea,
+select
+  font: inherit
+
+a:not([class])
+  text-decoration-skip-ink: auto
+
+/*
+ * Сайт. Основные стили
+ */
+body
+  font-family: $roboto
+  font-size: $fontsize
+  min-width: 320px
+  position: relative
+  line-height: 1.5
+  overflow-x: hidden
+  color: $textcolor
+  scroll-behavior: smooth
+  text-rendering: optimizeSpeed
