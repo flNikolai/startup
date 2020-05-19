@@ -9,7 +9,7 @@ let paths = {
 
   scripts: {
     src: [
-      // 'node_modules/jquery/dist/jquery.min.js', // npm пример (npm i --save-dev jquery)
+      'node_modules/jquery/dist/jquery.min.js', // npm пример (npm i --save-dev jquery)
       baseDir + '/js/app.js' // app.js. Всегда в конце
     ],
     dest: baseDir + '/js',
@@ -33,7 +33,7 @@ let paths = {
   deploy: {
     hostname: 'username@yousite.com',
     destination: 'yousite/public_html/',
-    include: [/* '*.htaccess' */],
+    include: [ /* '*.htaccess' */ ],
     exclude: ['**/Thumbs.db', '**/*.DS_Store'],
   },
 
@@ -57,6 +57,7 @@ const ttf2woff2 = require('gulp-ttf2woff2');
 const newer = require('gulp-newer');
 const rsync = require('gulp-rsync');
 const del = require('del');
+const gcmq = require('gulp-group-css-media-queries');
 
 function browsersync() {
   browserSync.init({
@@ -78,12 +79,13 @@ function styles() {
   return src(paths.styles.src)
     .pipe(eval(preprocessor)())
     .pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true }))
-    .pipe(sass({ outputStyle: 'expanded' })) 
+    .pipe(gcmq())
+    .pipe(sass({ outputStyle: 'expanded' }))
     /* nested - показывает вложенность (по умолчанию);
      * expanded - полностью развёрнутый CSS; 
      * compact - каждый селектор на новой строке; 
      * compressed - всё в одну строку.
-    */
+     */
     .pipe(concat(paths.cssOutputName))
     .pipe(dest(paths.styles.dest))
     .pipe(cleancss({ level: { 1: { specialComments: 0 } }, /* формат: 'beautify' */ }))
