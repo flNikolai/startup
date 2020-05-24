@@ -85,9 +85,14 @@ h1, h2, h3, h4, h5, h6
 /*
  * Сайт. Основные стили
  */
+html, body
+  height: 100%
+  width: 100%
+  font-size: 100%
+  font-size: $fontsize
+
 body
   font-family: $roboto
-  font-size: $fontsize
   min-width: 320px
   position: relative
   line-height: 1.5
@@ -95,6 +100,11 @@ body
   color: $textcolor
   scroll-behavior: smooth
   text-rendering: optimizeSpeed
+
+.wrapper
+  min-height: 100%
+  display: flex
+  flex-direction: column
 
 .__container
   max-width: $maxWidth + px
@@ -115,8 +125,8 @@ body
 .humburger
   position: fixed
   z-index: 101
-  top: 30px
-  left: 30px
+  top: 10px
+  left: 10px
   width: 50px
   height: 25px
   display: inline-block
@@ -137,7 +147,7 @@ body
   & span,
   & span:before,
   & span:after
-    background: $accent
+    background: #9299a2
     position: absolute
     height: 5px
     width: 50px
@@ -159,8 +169,8 @@ body
       background: none
       // border-top: 5px solid #1b1a1b
       // border-right: 5px solid #1b1a1b
-      border-bottom: 5px solid $accent
-      border-left: 5px solid $accent
+      border-bottom: 5px solid #9299a2
+      border-left: 5px solid #9299a2
       border-radius: 0px
       height: 19.8px
       width: 19.8px

@@ -1,8 +1,8 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
 
   /* Фоновое изображение */
   function ibg() {
-    $.each($('.ibg'), function (index, val) {
+    $.each($('.ibg'), function(index, val) {
       if ($(this).find('img').length > 0) {
         $(this).css('background-image', 'url("' + $(this).find('img').attr('src') + '")');
       }
@@ -13,10 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /* Гамбургер */
-  $('.humburger').click(function (e) {
+  $('.humburger').click(function(e) {
     $('.humburger').stop().toggleClass('humburger__active');
   });
-  $(document).on('click', function (e) {
+  $(document).on('click', function(e) {
     if (!$(e.target).closest(".humburger").length) {
       $(".humburger").removeClass("humburger__active");
     }

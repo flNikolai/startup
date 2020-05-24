@@ -140,9 +140,16 @@ h6 {
 /*
  * Сайт. Основные стили
  */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  font-size: 14px;
+}
+
 body {
   font-family: Roboto, sans-serif;
-  font-size: 14px;
   min-width: 320px;
   position: relative;
   line-height: 1.5;
@@ -150,6 +157,17 @@ body {
   color: #333;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .__container {
@@ -173,8 +191,8 @@ body {
 .humburger {
   position: fixed;
   z-index: 101;
-  top: 30px;
-  left: 30px;
+  top: 10px;
+  left: 10px;
   width: 50px;
   height: 25px;
   display: inline-block;
@@ -209,7 +227,7 @@ body {
 .humburger span,
 .humburger span:before,
 .humburger span:after {
-  background: #1d92cf;
+  background: #9299a2;
   position: absolute;
   height: 5px;
   width: 50px;
@@ -240,8 +258,8 @@ body {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
   background: none;
-  border-bottom: 5px solid #1d92cf;
-  border-left: 5px solid #1d92cf;
+  border-bottom: 5px solid #9299a2;
+  border-left: 5px solid #9299a2;
   border-radius: 0px;
   height: 19.8px;
   width: 19.8px;
@@ -254,4 +272,37 @@ body {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+header {
+  background: #f1f1f1;
+  color: #333333;
+  font-weight: 500;
+  font-size: calc(21px + 9 * ((100vw - 320px) / 820));
+  text-transform: uppercase;
+  padding: 40px 0;
+  text-align: center;
+}
+
+main {
+  padding: 15px 0;
+  font-size: 30px;
+  color: #333333;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+footer {
+  background: #595959;
+  color: #ffffff;
+  padding: 15px 0;
+  text-align: center;
+}
+
+@media (min-width: 1140px) {
+  header {
+    font-size: 30px;
+  }
 }
