@@ -16,15 +16,171 @@
   <!-- START HTML -->
   <div class="wrapper">
 
-    <header>
+    <header class="header">
       <h2>Стартовый шаблон HTML5!</h2>
     </header>
 
     <main>
-      <div class="humburger">
-        <span></span>
-        <span></span>
-        <span></span>
+      <div class="container">
+
+        <!-- checkbox -->
+        <input id="check_1" type="checkbox" name="checkbox" value="" checked="checked">
+        <label for="check_1">checkbox</label>
+        <br>
+        <br>
+        <input id="check_2" type="checkbox" name="checkbox" value="">
+        <label for="check_2">checkbox</label>
+
+        <hr>
+
+        <div class="switch_box">
+          <span>Text</span>
+          <div class="switch">
+            <input type="checkbox" name="switch" value="" checked="checked">
+            <div class="button"></div>
+            <div class="layer"></div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <div class="switch_box">
+          <span>Text</span>
+          <div class="switch">
+            <input type="checkbox" name="switch" value="">
+            <div class="button"></div>
+            <div class="layer"></div>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- radio -->
+        <input id="radio_1" type="radio" name="radio" value="" checked="checked">
+        <label for="radio_1">radio</label>
+        <br>
+        <br>
+        <input id="radio_2" type="radio" name="radio" value="">
+        <label for="radio_2">radio</label>
+
+        <hr>
+
+        <!-- link -->
+        <a href="">link</a>
+        <br>
+        <br>
+        <a href=""><span>+</span>link</a>
+
+        <hr>
+
+        <!-- button -->
+        <button class="btn">button</button>
+        <button class="btn lighten">button</button>
+        <button class="btn border">button</button>
+        <button class="btn" disabled>disabled</button>
+        <br>
+        <br>
+        <input type="submit" class="btn" value="input">
+        <input type="submit" class="btn lighten" value="input">
+        <input type="submit" class="btn border" value="input">
+        <br>
+        <br>
+        <a href="" class="btn">link</a>
+        <a href="" class="btn lighten">link</a>
+        <a href="" class="btn border">link</a>
+
+        <hr>
+
+        <!-- table -->
+        <table class="highlight centered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Item Name</th>
+              <th>Item Price</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Alvin</td>
+              <td><a href="">Eclair</a></td>
+              <td>$0.87</td>
+            </tr>
+            <tr>
+              <td>Alan</td>
+              <td>Jellybean</td>
+              <td>$3.76</td>
+            </tr>
+            <tr>
+              <td>Jonathan</td>
+              <td>Lollipop</td>
+              <td>$7.00</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <hr>
+
+        <!-- form -->
+        <form>
+          <div class="form-group row">
+            <label for="staticEmail">Email</label>
+            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword">Password</label>
+            <input type="password" id="inputPassword" placeholder="password" required>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword1">Re Password</label>
+            <input type="password" id="inputPassword1" placeholder="re password" required>
+          </div>
+          <button type="submit" class="btn">Confirm identity</button>
+        </form>
+
+        <hr>
+
+        <form>
+          <div class="form-group">
+            <label for="staticEmail22">Email</label>
+            <input type="text" readonly class="form-control-plaintext" id="staticEmail22" value="email@example.com">
+          </div>
+          <div class="form-group">
+            <label for="inputPassword2">Password</label>
+            <input type="password" id="inputPassword2" placeholder="Password" required>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword22">Password</label>
+            <input type="password" id="inputPassword22" placeholder="Password" required>
+          </div>
+          <button type="submit" class="btn">Confirm identity</button>
+        </form>
+
+        <hr>
+
+        <form class="form-inline">
+          <div class="form-group">
+            <div class="input-group-prepend">@</div>
+            <input type="text" id="staticEmail2" value="email@example.com" pattern="[a-z]{4,8}" title="email@example.com" required>
+          </div>
+          <div class="form-group">
+            <input type="password" name="password" placeholder="Password" pattern="[a-z]{4,8}" title="Только латинцкие буквы" required>
+            <div class="input-group-append">@</div>
+          </div>
+          <button type="submit" class="btn">Confirm identity</button>
+        </form>
+
+        <hr>
+
+        <select>
+          <option selected>Choose...</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three Three Three Three</option>
+        </select>
+
+        <hr>
+
       </div>
     </main>
 
@@ -36,6 +192,7 @@
   <!-- END HTML -->
 
   <script src="js/app.min.js"></script>
+
 </body>
 
 </html>
