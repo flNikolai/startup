@@ -10,6 +10,7 @@ let paths = {
   scripts: {
     src: [
       'node_modules/jquery/dist/jquery.min.js', // npm пример (npm i --save-dev jquery)
+      'node_modules/toastr/build/toastr.min.js', //
       baseDir + '/js/app.js' // app.js. Всегда в конце
     ],
     dest: baseDir + '/js',

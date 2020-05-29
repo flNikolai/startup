@@ -9,6 +9,10 @@
   <link rel="icon" href="images/favicon.png">
   <meta property="og:image" content="images/preview.jpg">
   <link rel="stylesheet" href="css/app.min.css">
+  <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
+
+
+  <script src="js/app.min.js"></script>
 </head>
 
 <body>
@@ -23,7 +27,24 @@
     <main>
       <div class="container">
 
-        <!-- checkbox -->
+        <hr>
+
+        <h3>Alerts</h3>
+
+        <div class="alert alert-error">
+          A simple error alert—check it out!
+        </div>
+        <div class="alert alert-success">
+          A simple success alert—check it out!
+        </div>
+        <div class="alert alert-warning">
+          A simple warning alert—check it out!
+        </div>
+
+        <hr>
+
+        <h3>Checkbox</h3>
+
         <input id="check_1" type="checkbox" name="checkbox" value="" checked="checked">
         <label for="check_1">checkbox</label>
         <br>
@@ -64,33 +85,52 @@
 
         <hr>
 
-        <!-- link -->
-        <a href="">link</a>
+        <h3>Toast \ Link</h3>
+        <a href="#!" id="success">Toast success</a>
+        <script>
+          $('#success').click(function () {
+            toastr.success('My name is Inigo Montoya. You killed my father, prepare to die!')
+          })
+        </script>
+
+        <a href="#!" id="error">Toast error</a>
+        <script>
+          $('#error').click(function () {
+            toastr.error('My name is Inigo Montoya. You killed my father, prepare to die!')
+          })
+        </script>
+
+        <a href="#!" id="warning">Toast warning</a>
+        <script>
+          $('#warning').click(function () {
+            toastr.warning('My name is Inigo Montoya. You killed my father, prepare to die!')
+          })
+        </script>
         <br>
         <br>
         <a href=""><span>+</span>link</a>
+        <br>
+        <br>
+        <a href=""><i class="fa fa-angle-left"></i>link</a>
 
         <hr>
 
-        <!-- button -->
+        <h3>Button</h3>
+
         <button class="btn">button</button>
         <button class="btn lighten">button</button>
         <button class="btn border">button</button>
         <button class="btn" disabled>disabled</button>
         <br>
         <br>
-        <input type="submit" class="btn" value="input">
-        <input type="submit" class="btn lighten" value="input">
-        <input type="submit" class="btn border" value="input">
-        <br>
-        <br>
-        <a href="" class="btn">link</a>
-        <a href="" class="btn lighten">link</a>
-        <a href="" class="btn border">link</a>
+        <a href="#!" class="btn">link</a>
+        <a href="#!" class="btn lighten">link</a>
+        <a href="#!" class="btn border">link</a>
 
         <hr>
 
-        <!-- table -->
+        <h3>Table</h3>
+
         <table class="highlight centered">
           <thead>
             <tr>
@@ -121,53 +161,41 @@
 
         <hr>
 
-        <!-- form -->
-        <form>
-          <div class="form-group row">
-            <label for="staticEmail">Email</label>
-            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
-          </div>
-          <div class="form-group row">
-            <label for="inputPassword">Password</label>
-            <input type="password" id="inputPassword" placeholder="password" required>
-          </div>
-          <div class="form-group row">
-            <label for="inputPassword1">Re Password</label>
-            <input type="password" id="inputPassword1" placeholder="re password" required>
-          </div>
-          <button type="submit" class="btn">Confirm identity</button>
-        </form>
+        <h3>Form</h3>
 
-        <hr>
+        <form class="validate-form">
+          <h2>Welcome</h2>
 
-        <form>
-          <div class="form-group">
-            <label for="staticEmail22">Email</label>
-            <input type="text" readonly class="form-control-plaintext" id="staticEmail22" value="email@example.com">
+          <div class="validate-input" data-validate="Enter username">
+            <input type="text" name="username">
+            <span data-placeholder="Username"></span>
           </div>
-          <div class="form-group">
-            <label for="inputPassword2">Password</label>
-            <input type="password" id="inputPassword2" placeholder="Password" required>
-          </div>
-          <div class="form-group">
-            <label for="inputPassword22">Password</label>
-            <input type="password" id="inputPassword22" placeholder="Password" required>
-          </div>
-          <button type="submit" class="btn">Confirm identity</button>
-        </form>
 
-        <hr>
+          <div class="validate-input" data-validate="Enter password">
+            <input type="password" name="pass">
+            <span data-placeholder="Password"></span>
+          </div>
 
-        <form class="form-inline">
-          <div class="form-group">
-            <div class="input-group-prepend">@</div>
-            <input type="text" id="staticEmail2" value="email@example.com" pattern="[a-z]{4,8}" title="email@example.com" required>
+          <div class="validate-input" data-validate="Введите слон">
+            <input type="text" name="email">
+            <span data-placeholder="email"></span>
           </div>
-          <div class="form-group">
-            <input type="password" name="password" placeholder="Password" pattern="[a-z]{4,8}" title="Только латинцкие буквы" required>
-            <div class="input-group-append">@</div>
+
+          <div class="container-form-btn">
+            <button class="btn">Login</button>
           </div>
-          <button type="submit" class="btn">Confirm identity</button>
+
+          <ul class="login-more p-t-190">
+            <li class="m-b-8">
+              <span class="txt1">Forgot</span>
+              <a href="#" class="txt2">Username / Password?</a>
+            </li>
+
+            <li>
+              <span class="txt1"> Don’t have an account?</span>
+              <a href="#" class="txt2">Sign up</a>
+            </li>
+          </ul>
         </form>
 
         <hr>
@@ -181,6 +209,24 @@
 
         <hr>
 
+        <h3>Pagination</h3>
+
+        <ul class="pagination">
+          <li class="disabled"><a href="#!"><i class="fa fa-chevron-left"></i></a></li>
+          <li class="active"><a href="#!">1</a></li>
+          <li><a href="#!">2</a></li>
+          <li><a href="#!">3</a></li>
+          <li><a href="#!">4</a></li>
+          <li><a href="#!">5</a></li>
+          <li><a href="#!">6</a></li>
+          <li><a href="#!">7</a></li>
+          <li><a href="#!">8</a></li>
+          <li><a href="#!">9</a></li>
+          <li><a href="#!"><i class="fa fa-chevron-right"></i></a></li>
+        </ul>
+
+        <hr>
+
       </div>
     </main>
 
@@ -191,7 +237,7 @@
   </div>
   <!-- END HTML -->
 
-  <script src="js/app.min.js"></script>
+
 
 </body>
 

@@ -1,3 +1,37 @@
+// Новые переменные
+$main: #26a69a
+$border: #e0e0e0
+$border_dark: darken(#e0e0e0, 20%)
+
+$black: rgba(0,0,0,0.7)
+$white: #fff
+
+$error: #F44336
+$success: #4CAF50
+
+// #ee6e73
+// #ea454b
+
+h1
+  font-size: 63px
+  color: #ee6e73
+  line-height: 1.2
+  margin-bottom: 15px
+h2
+  font-size: 53px
+  color: #ee6e73
+  line-height: 1.2
+  margin-bottom: 15px
+h3
+  font-size: 43px
+  color: #ee6e73
+  line-height: 1.2
+  margin-bottom: 15px
+
+
+body
+  color: $black
+
 .ibg
   background-position: center
   background-size: cover
@@ -30,7 +64,7 @@
   & span,
   & span:before,
   & span:after
-    background: #9299a2
+    background: $main
     position: absolute
     height: 5px
     width: 50px
@@ -50,10 +84,10 @@
       opacity: 1
       transform: rotate(45deg)
       background: none
-      // border-top: 5px solid #1b1a1b
-      // border-right: 5px solid #1b1a1b
-      border-bottom: 5px solid #9299a2
-      border-left: 5px solid #9299a2
+      // border-top: 5px solid $main
+      // border-right: 5px solid $main
+      border-bottom: 5px solid $main
+      border-left: 5px solid $main
       border-radius: 0px
       height: 19.8px
       width: 19.8px
@@ -64,72 +98,101 @@
       transform: rotate(45deg)
 
 a
-  color: #c48948
+  color: $main
   font-size: 16px
   display: inline-block
   span
     display: inline-block
     padding: 0 9px 0 0
+  i
+    padding: 0 9px 0 0
 
+::selection
+  background-color: $main
+  color: $white
 
 hr
   border: none
-  color: #e7e7e7
-  background: #e7e7e7
-  height: 2px
+  color: $border
+  background: $border
+  height: 1px
   margin: 15px 0
 
+
 .btn
-  background: #bf9f76
-  border: 2px solid #bf9f76
-  color: #ffffff
-  border-radius: 6px
+  border: 3px solid $main
+  background: $white
   font-size: 16px
+  color: $main
+  text-decoration: none
+  text-transform: uppercase
+  min-width: 200px
   padding: 11px 25px
   display: inline-block
-  cursor: pointer
-  min-width: 200px
   text-align: center
-  transition: .7s ease
-  &.lighten
-    background: #fec88c
-    border: 2px solid #fec88c
-    &:hover
-      background: darken(#fec88c, 20%)
-
-  &.border
-    background: none
-    border: 2px solid #a7a7a7
-    color: #a7a7a7
-    &:hover
-      background: #a7a7a7
-      color: #ffffff
-
-  &:focus
-    box-shadow: 0px 0px 4px 2px rgba(191,159,118,.4)
-  &:hover
-    background: darken(#bf9f76, 20%)
-    border: 2px solid transparent
-    
-
+  position: relative
+  transition: .7s
+  overflow: hidden
+  cursor: pointer
+  z-index: 0
   &:disabled
     opacity: 0.5
     cursor: default
+  &::before
+    position: absolute
+    content: ''
+    width: 100%
+    height: 100%
+    background: $main
+    top: 0
+    left: -100%
+    opacity: .5
+    transition: .3s
+    z-index: -1
+  &::after
+    position: absolute
+    content: ''
+    width: 100%
+    height: 100%
+    background: $main
+    top: 0
+    left: -100%
+    opacity: .5
+    transition: .3s
+    z-index: -1
+    opacity: 1
+    transition-delay: .2s
+  &:hover
+    color: $white
+    &::before, &::after
+      left: 0
+.pulse
+  background-color: aqua
+  border-radius: 50%
+  animation: pulse 0.7s ease-out
+  transform: scale(0)
+  position: absolute
+@keyframes pulse
+  to
+    transform: scale(2)
+    background-color: $white
+    opacity: 0
+
 
 input[type=checkbox]
   display: none
   &:checked + label:before
-    content: "\2714"
-    background: #fec88c
-    padding: 1px 0px
+    font-family: FontAwesome
+    content: "\f078"
+    background: $main
 input[type=checkbox] + label
   cursor: pointer
-  font-size: 17px
-  color: #171718
+  font-size: 15px
+  color: $border_dark
   &:before
     content: ""
-    color: #707070
-    background: #fec88c
+    color: $white
+    background: $main
     font-size: 14px
     display: inline-block
     margin-right: 9px
@@ -140,19 +203,18 @@ input[type=checkbox] + label
     width: 20px
     height: 20px
     vertical-align: middle
-    border-radius: 5px
+    // border-radius: 5px
 
 input[type=radio]
   display: none
   &:checked + label:before
-    content: "•"
-    font-size: 33px
-    color: #e2c29b
-    padding: 0 1.5px
+    font-family: FontAwesome
+    content: "\f111"
+    font-size: 9px
+    color: $main
 input[type=radio] + label
   cursor: pointer
   font-size: 17px
-  color: #171718
   &:before
     content: ""
     background: none
@@ -165,16 +227,16 @@ input[type=radio] + label
     text-indent: 0px
     width: 17px
     height: 17px
-    line-height: 16px
+    line-height: 13px
     vertical-align: middle
     border-radius: 50%
-    border: 2px solid #e2c29b
+    border: 2px solid $main
 
 .switch_box
   display: inline-flex
   align-items: center
-  background: #ffffff
-  border: 2px solid #d7d7d7
+  background: $white
+  border: 1px solid $border
   border-radius: 6px
   padding: 10px 20px
   span
@@ -197,7 +259,7 @@ input[type=radio] + label
     &:checked + .button:before
       left: 16px
     &:checked ~ .layer
-      background: #e9b57b
+      background: $main
   .button
     position: absolute
     top: 0
@@ -213,7 +275,7 @@ input[type=radio] + label
       left: 3px
       width: 14px
       height: 14px
-      background-color: #fff
+      background-color: $white
       border-radius: 50%
       transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all
   .layer
@@ -224,7 +286,7 @@ input[type=radio] + label
     left: 0
     width: 100%
     border-radius: 100px
-    background-color: #aeaeae
+    background-color: $border_dark
     transition: 0.3s ease all
     z-index: 1
 
@@ -235,90 +297,179 @@ table
   border-spacing: 0
   font-size: 16px
   text-align: left
-  border: 1px solid #dbdbdb
+  border: 1px solid $border
   thead
-    background: #d9bc95
+    background: $main
+    color: $white
     tr
       th
         font-weight: 600
         padding: 15px 15px
-        border: 1px solid #dbdbdb
+        border: 1px solid $border
   tbody
-    background: #ffffff
+    background: $white
     tr
-      transition: background-color .25s ease;
+      transition: background-color .25s ease
       td
         padding: 15px 15px 30px
-        border: 1px solid #dbdbdb
+        border: 1px solid $border
 table.highlight
   tbody
     tr:hover
-      background-color: rgba(242,242,242,0.5)
+      background-color: rgba(18, 161, 154, 0.1)
 table.centered thead tr th,
 table.centered tbody tr td
   text-align: center
 
 form
-  .form-group.row
-    display: flex
-    flex-wrap: wrap
-    align-items: center
-  .form-group
-    margin-bottom: 25px
-  input
-    max-width: 450px
+  width: 100%
+  h2
+    font-size: 39px
+    line-height: 1.2
+    font-weight: 700
+    text-align: center
+    margin-bottom: 35px
+  .validate-input
+    position: relative
     width: 100%
-    height: 46px
-    padding: 0 25px
-    border: 1px solid #cecdc9
-    border-radius: 8px
+    border-bottom: 1px solid $border
+    margin-bottom: 35px
+    input
+      font-size: 15px
+      width: 100%
+      height: 46px
+      background: transparent
+      padding: 0 5px
+      &:focus + span:before
+        width: 100%
+      &:focus + span::after
+        top: -15px
+        font-size: 15px
+      &.has-val + span:before
+        width: 100%
+      &.has-val + span::after
+        top: -15px
+        font-size: 15px
+        color: $main
+    span
+      position: absolute
+      display: block
+      width: 100%
+      height: 100%
+      top: 0
+      left: 0
+      pointer-events: none
+      &::before
+        content: ""
+        display: block
+        position: absolute
+        bottom: -2px
+        left: 0
+        width: 0
+        height: 1px
+        transition: all 0.4s
+        background: $main
+      &::after
+        font-size: 18px
+        color: $border_dark
+        line-height: 1.2
+        content: attr(data-placeholder)
+        display: block
+        width: 100%
+        position: absolute
+        top: 15px
+        left: 0px
+        padding-left: 5px
+        transition: all 0.4s
+  .login-more
+    padding-top: 100px
+.alert-validate
+  &:hover:before
+    visibility: visible
+    opacity: 1
+  &::before
+    content: attr(data-validate)
+    position: absolute
+    max-width: 70%
+    background-color: $white
+    border: 1px solid $error
+    border-radius: 2px
+    padding: 4px 25px 4px 10px
+    top: 50%
+    transform: translateY(-50%)
+    right: 0px
+    pointer-events: none
+    color: $error
+    font-size: 13px
+    line-height: 1.4
+    text-align: left
+    visibility: hidden
+    opacity: 0
+    transition: opacity 0.4s
+  &::after
+    content: "\f06a"
+    font-family: FontAwesome
     font-size: 16px
-    &:focus
-      box-shadow: 0px 0px 4px 2px rgba(191,159,118,.4)
-    &:read-only
-      background-color: #e7e7e7
-  label
-    width: 150px
-    color: #777777
+    color: $error
     display: block
-.form-inline
-  display: flex
-  flex-flow: row wrap
-  align-items: center
-  .form-group
-    margin-right: 25px
-    margin-bottom: 0
-    display: flex
-    align-items: center
-  .input-group-prepend
-    margin-right: -1px
-    background: #e7e7e7
-    white-space: nowrap
-    width: 35px
-    height: 46px
-    line-height: 40px
-    border: 1px solid #cecdc9
-    border-radius: 8px 0 0 8px
-    text-align: center
-  .input-group-prepend ~ input
-    border-radius: 0 8px 8px 0
-  .input-group-append
-    margin-left: -1px
-    background: #e7e7e7
-    white-space: nowrap
-    width: 35px
-    height: 46px
-    line-height: 40px
-    border: 1px solid #cecdc9
-    border-radius: 0 8px 8px 0
-    text-align: center
-  input
-    border-radius: 8px 0 0 8px
-  label
-    display: none
+    position: absolute
+    background-color: $white
+    top: 50%
+    transform: translateY(-50%)
+    right: 5px
+
+
 
 select
-  border: 1px solid #cecdc9
-  border-radius: 8px
-  padding: 0 25px
+  border-bottom: 1px solid $border
+  padding: 0 5px
+  margin: 0 0 8px 0
   height: 46px
+  user-select: none
+
+
+.pagination
+  li
+    display: inline-block
+    border-radius: 2px
+    text-align: center
+    vertical-align: top
+    height: 30px
+    a
+      color: #444
+      display: inline-block
+      font-size: 1.2rem
+      padding: 0 10px
+      line-height: 30px
+      text-decoration: none
+    &.disabled a
+      cursor: default
+      color: $border_dark
+    &.active
+      background-color: #ee6e73
+      a
+        color: $white
+
+
+.alert
+  position: relative
+  padding: .75rem 1.25rem
+  margin-bottom: 1rem
+  border: 1px solid transparent
+  border-radius: .25rem
+  box-shadow: 0 0 12px #999
+  opacity: .8
+  color: $white
+  &-error
+    background: $error
+  &-success
+    background: $success
+  &-warning
+    background: #0c8da5
+
+.toast-success
+  background-color: $success !important
+.toast-warning
+  background-color: #0c8da5 !important
+.toast-error
+  background-color: $error !important
